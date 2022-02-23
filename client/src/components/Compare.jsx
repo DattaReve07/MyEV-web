@@ -26,7 +26,7 @@ const Compare = () => {
   useEffect(() => {
     const checkSession = async()=>{
       const email = await sessionStorage.getItem("userEmail");
-      console.log(email);
+      // console.log(email);
       if(!email)
       {
         navigate("/");
@@ -40,7 +40,7 @@ const Compare = () => {
   var no = 1;
   no = finalData.push(menuData1[0]);
   no = finalData.push(menuData2[0]);
-  console.log(finalData);
+  // console.log(finalData);
 
   return (
     <>
@@ -109,7 +109,7 @@ const Compare = () => {
       <div className="compare-table">
         <table className="compare-table" id="students">
           {finalData.map((curElem) => {
-            console.log(curElem);
+            // console.log(curElem);
             return (
               <>
                 <div className="resize-table">

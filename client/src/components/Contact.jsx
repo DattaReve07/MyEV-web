@@ -24,7 +24,7 @@ const Contact = () => {
   useEffect(() => {
     const checkSession = async()=>{
       const email = await sessionStorage.getItem("userEmail");
-      console.log(email);
+      // console.log(email);
       if(!email)
       {
         history("/");
@@ -41,7 +41,7 @@ const Contact = () => {
 
   let name, value;
   const handleInputs = (e) => {
-    console.log(e);
+    // console.log(e);
     name = e.target.name;
     value = e.target.value;
     setUser({ ...user, [name]: value });
@@ -50,7 +50,7 @@ const Contact = () => {
   const PostData = async (e) => {
     e.preventDefault();
     const { name, email, phone, message } = user;
-    console.log(user);
+    // console.log(user);
     const res = await fetch("http://localhost:5000/contact", {
       method: "POST",
       headers: {
@@ -63,19 +63,19 @@ const Contact = () => {
         message: message,
       }),
     });
-    console.log(res);
+    // console.log(res);
     const data = await res.json();
-    console.log(data);
+    // console.log(data);
     if (data.error) {
       window.alert("Unable to send message");
     } else {
-      console.log(data);
+      // console.log(data);
       if (data.status === 400 || !data) {
         window.alert("Invalid response");
         console.log("Invalid response");
       } else {
         window.alert("response submitted Successfully");
-        console.log("response Successfull");
+        // console.log("response Successfull");
 
         history("/home1");
       }

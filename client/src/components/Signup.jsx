@@ -49,7 +49,7 @@ const Signup = () => {
     }
     user.formErrors = formErrors;
     // setUser({ formErrors: formErrors });
-    console.log(user.formErrors);
+    // console.log(user.formErrors);
     return formIsValid;
   };
   let name, value;
@@ -72,10 +72,10 @@ const Signup = () => {
     });
 
     const data = await res.json();
-    console.log(data.error);
+    // console.log(data.error);
     if (!handleFormValidation()) {
       // setUser(user);
-      console.log("please fill correctly");
+      // console.log("please fill correctly");
     } else if (data.error) {
       alert("user email already exist");
     } else {

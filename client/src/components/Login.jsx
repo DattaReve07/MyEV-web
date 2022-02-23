@@ -17,8 +17,8 @@ const Login = () => {
     });
 
     const data = await res.json();
-    console.log(data);
-    console.log(data.name);
+    // console.log(data);
+    // console.log(data.name);
     if (res.status === 400 || !data) {
       window.alert("Invalid credentilas");
     } else {
@@ -26,7 +26,7 @@ const Login = () => {
       sessionStorage.setItem("name", data.name);
       sessionStorage.setItem("phone", data.phone);
       window.alert("login successful");
-      console.log("login successful");
+      // console.log("login successful");
       history("/home1");
     }
   };

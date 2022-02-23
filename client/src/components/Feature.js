@@ -28,9 +28,9 @@ const Feature = () => {
   const history = useNavigate();
   const [fav, setFav] = useState(false);
   const { id } = useParams();
-  console.log(id);
+  // console.log(id);
   let curElem = {};
-  console.log(Menu.length);
+  // console.log(Menu.length);
   for (let i = 0; i < Menu.length; i++) {
     if (Menu[i].id === Number(id)) {
       curElem = Menu[i];
@@ -58,7 +58,7 @@ const Feature = () => {
       });
 
       const data = await res.json();
-      console.log("He", data.effect);
+      // console.log("He", data.effect);
       if (data.effect == 1) {
         setFav(true);
       }
@@ -82,7 +82,7 @@ const Feature = () => {
     });
 
     const data = await res.json();
-    console.log(data.effect);
+    // console.log(data.effect);
     if (data.effect == 1) {
       setFav(false);
     }

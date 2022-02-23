@@ -8,7 +8,7 @@ const RatingPage = ({ vehicleId }) => {
   useEffect(() => {
     const checkSession = async()=>{
       const email = await sessionStorage.getItem("userEmail");
-      console.log(email);
+      // console.log(email);
       if(!email)
       {
         console.log("Hello invalid");

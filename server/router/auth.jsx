@@ -49,7 +49,7 @@ router.post("/register", async (req, res) => {
 
 router.post("/favourites", async (req, res) => {
   const { id, email } = req.body;
-  console.log(id);
+  // console.log(id);
   try {
     const record = await User.count({ email: email, favourited: {$in:[id]} });
 
@@ -68,7 +68,7 @@ router.post("/favourites", async (req, res) => {
         return res.json({effect: record});
     }
   } catch (err) {
-    console.log(err);
+    // console.log(err);
   }
   res.json({message: "Updated"});
 });
@@ -76,13 +76,13 @@ router.post("/favourites", async (req, res) => {
 
 router.post("/checkfavourites", async (req, res) => {
   const { id, email } = req.body;
-  console.log(id);
+  // console.log(id);
   try {
     const record = await User.count({ email: email, favourited: {$in:[id]} });
 
     return res.json({effect: record});
   } catch (err) {
-    console.log(err);
+    // console.log(err);
   }
   res.json({message: "Updated"});
 });
@@ -90,16 +90,16 @@ router.post("/checkfavourites", async (req, res) => {
 
 router.post("/gotofavourites", async (req, res) => {
   const { email } = req.body;
-  console.log(email);
+  // console.log(email);
   try {
     const record = await User.findOne({ email: email});
-    console.log(record.favourited.length);
+    // console.log(record.favourited.length);
     if(record.favourited.length != 0)
     {
       return res.json(record.favourited);
     }
   } catch (err) {
-    console.log(err);
+    // console.log(err);
   }
   res.json([]);
 });
@@ -138,9 +138,9 @@ router.post("/signin", async (req, res) => {
 
     const userLogin = await User.findOne({ email: email, password: password });
     const { name, phone } = userLogin;
-    console.log(email);
-    console.log(name);
-    console.log(phone);
+    // console.log(email);
+    // console.log(name);
+    // console.log(phone);
     
     if (userLogin) {
       token = await userLogin.generateAuthToken();
@@ -157,14 +157,14 @@ router.post("/signin", async (req, res) => {
       res.status(400).json({ error: "invalid credentials" });
     }
   } catch (err) {
-    console.log(err);
+    // console.log(err);
   }
 });
 
 router.post("/rating", async (req, res) => {
   // console.log(req.body);
   const { email, vehicleId, givenRating } = req.body;
-  console.log(email, vehicleId, givenRating);
+  // console.log(email, vehicleId, givenRating);
   const userRating = await User.findOne({ email: email });
   //   console.log(userRating);
   if (userRating) {
@@ -177,21 +177,21 @@ router.post("/rating", async (req, res) => {
         { email: email },
         { $push: { rating: { id: vehicleId, rate: givenRating } } }
       );
-      console.log(r);
+      // console.log(r);
     } catch (err) {
-      console.log(err);
+      // console.log(err);
       res.status(422).json({ error: "Plz fill the field properly" });
     }
   }
 });
 
 router.get("/about", (req, res) => {
-  console.log("hello about page");
+  // console.log("hello about page");
   res.send(req.rootUser);
 });
 
 router.get("/logout", (req, res) => {
-  console.log("hello about page");
+  // console.log("hello about page");
   res.clearCookie("jwtoken", { path: "/" });
   res.status(200).send("logged out");
 });

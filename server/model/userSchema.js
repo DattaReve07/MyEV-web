@@ -46,7 +46,7 @@ userSchema.methods.generateAuthToken = async function () {
     await this.save();
     return token;
   } catch (err) {
-    console.log(err);
+    // console.log(err);
   }
 };
 const User = mongoose.model("REGISTER", userSchema);

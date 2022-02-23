@@ -62,7 +62,7 @@ const Favourites = () => {
         }),
       });
       const data = await res.json();
-      console.log(data);
+      // console.log(data);
       if (data.length == 0 && email) {
         alert("No vehicles added to favourites...");
         navigate("/home1");
