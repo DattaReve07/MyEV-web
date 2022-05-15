@@ -1,0 +1,35 @@
+.cont{
+            
+    margin: auto;
+    width:fit-content;
+    padding: 10px;
+    display: flex;
+    /* border: 3px solid yellowgreen; */
+    border-radius: 5%;
+    background-color:gold;
+}
+/* .cont img{
+    width: 40%;
+    border-radius: 10%;
+    border: 2px solid black;
+} */
+.cont .card1{
+    margin: auto;
+    padding: 20px;
+    font-size: 3.4vw;
+    
+}
+.cont .card-read{
+    margin: auto;
+    padding: 4%;
+    color: white;
+    font-size: 2vw;
+    background-color: blue;
+    border-radius: 5%;
+    
+}
+main{
+    display: flex;
+    height: 100%;
+    background-color:lavender;
+}
